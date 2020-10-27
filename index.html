@@ -27,12 +27,32 @@
         animation: animate 20s linear infinite;
       }
 
+      .box::after {
+        position: absolute;
+        bottom: 0;
+        content: 'Pure CSS';
+        font-size: 3rem;
+        color: white;
+        animation: anti 20s linear infinite;
+        -webkit-box-reflect: below 0px
+          linear-gradient(transparent, transparent, #0004);
+      }
+
       @keyframes animate {
         0% {
           transform: perspective(1000px) rotateY(0deg);
         }
         100% {
           transform: perspective(1000px) rotateY(360deg);
+        }
+      }
+
+      @keyframes anti {
+        0% {
+          transform: perspective(1000px) rotateY(360deg);
+        }
+        100% {
+          transform: perspective(1000px) rotateY(0deg);
         }
       }
 
@@ -56,10 +76,20 @@
         height: 100%;
         object-fit: cover;
       }
+
+      .txt {
+        position: absolute;
+        z-index: 1;
+        font-size: 3rem;
+        color: white;
+        -webkit-box-reflect: below 0px
+          linear-gradient(transparent, transparent, #0004);
+      }
     </style>
   </head>
   <body>
     <div class="box">
+      <!-- <div class="txt">Pure CSS</div> -->
       <span style="--i: 1"><img src="img1.jpg" /></span>
       <span style="--i: 2"><img src="img2.jpg" /></span>
       <span style="--i: 3"><img src="img3.jpg" /></span>
